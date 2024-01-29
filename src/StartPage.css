@@ -1,0 +1,89 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+
+.gamecard-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin-top: 100px auto;
+    list-style-type: none;
+    gap: 1.25rem;
+
+}
+
+.gamecard {
+    position: relative;
+    flex: 1;
+    /* width: 325px; */
+    max-width: 20vw;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    background: rgb(234, 234, 234);
+    min-height: 200px;
+    transition: all 0.3s ease-in-out;
+
+
+}
+
+.gamecard>img {
+
+    max-width: 100%;
+    max-height: 200px;
+
+}
+
+.gamecard:hover {
+    /* cursor: pointer; */
+    transform: scale(1.03);
+    flex: 3;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.474);
+}
+
+
+.gamecard>p {
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+
+
+/* .expanded-info {
+    display: none;
+    background-color: #f9f9f9;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    transition: height 0.3s ease;
+} */
+
+.page-text {
+    color: rgb(234, 234, 234);
+}
+
+.remove-button {
+    background-color: rgb(114, 114, 114);
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.remove-button:hover {
+    background-color: rgb(231, 68, 68);
+    cursor: pointer;
+}
+
+.gamecard:hover .expanded-info {
+    display: block;
+
+}
