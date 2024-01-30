@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { getSearchedGames } from '../rawgService'
+import '../StartPage.css'
+
 
 
 const GameSearch: React.FC = () => {
@@ -22,13 +24,13 @@ const GameSearch: React.FC = () => {
             <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
             <button onClick={handleSearch}>Search</button>
 
-            <ul>
+            <ul className='gamepanel-container'>
                 {games.map((game) => (
                     <li key={game.id}>
-                        <div>
-                            <img src={game.background_image} alt={game.name} style={{ maxWidth: '100px' }} />
+                        <div className='gamepanel'>
+                            <img src={game.background_image} alt={game.name} />
                             <p>{game.name}</p>
-                            <hr/>
+
                         </div>
                     </li>
                 ))}

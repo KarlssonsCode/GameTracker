@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { getStartPageGames } from "../rawgService";
-import './StartPage.css'
+import '../StartPage.css'
 
 const StartPage: React.FC = () => {
     const [games, setGames] = useState<any[]>([]);
@@ -28,8 +28,8 @@ const StartPage: React.FC = () => {
                     <li key={game.id}>
                         <div className="gamepanel">
                             <img src={game.background_image} alt={game.name} />
-                            <h3>{game.name}</h3>
-                            <button>Go To page</button>
+                            <p>{game.name}</p>
+                            
                         </div>
                     </li>
                 ))}
