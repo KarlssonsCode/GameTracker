@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getGames } from '../rawgService'
+import { getSearchedGames } from '../rawgService'
 
 
 const GameSearch: React.FC = () => {
@@ -8,7 +8,7 @@ const GameSearch: React.FC = () => {
 
     const handleSearch = async () => {
         try {
-            const result = await getGames(searchQuery);
+            const result = await getSearchedGames(searchQuery);
             setGames(result.results);
             console.log('RESULT FROM SEARCH', result)
         }

@@ -10,7 +10,7 @@ const Header: React.FC = () => {
                     <ul className="nav-items">
                         <li><a href="start">Start</a></li>
                         <li><a href="backlog">Backlog</a></li>
-                        <li><a href="toplist">toplist</a></li>
+                        <li><a href="toplist">Toplist</a></li>
                     </ul>
                 </nav>
             </header>
