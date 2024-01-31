@@ -1,17 +1,24 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from './components/Header';
 import StartPage from './pages/Startpage';
+import Backlog from './pages/Backlog';
+import Toplist from './pages/Toplist';
 import GameSearch from './pages/GameSearch';
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div >
+    <Router>
       <Header />
       <GameSearch />
-      <StartPage />
-
-    </div>
+      <Routes>
+        <Route path="/" element={<StartPage />} />
+        <Route path="/backlog" element={<Backlog />} />
+        <Route path="/toplist" element={<Toplist />} />
+      </Routes>
+    </Router>
   );
 };
 

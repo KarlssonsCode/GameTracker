@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { getStartPageGames } from "../rawgService";
-import '../StartPage.css'
 import GameList from "./GameList";
+import '../StartPage.css'
 
 const StartPage: React.FC = () => {
-    
+const renderInput = () => null;
 
     return (
-         <GameList fetchMethod={getStartPageGames} />
-        
+        <GameList fetchMethod={getStartPageGames} renderInput={renderInput}/>
+
     );
 
 };

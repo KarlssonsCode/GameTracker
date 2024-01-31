@@ -1,20 +1,33 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import './Components.css';
 
 const Header: React.FC = () => {
     return (
-        <div>
-            <header className="Header">
+        <nav className="nav">
+            <div className="container">
                 <h1>Game Tracker</h1>
-                <nav>
-                    <ul className="nav-items">
-                        <li><a href="start">Start</a></li>
-                        <li><a href="backlog">Backlog</a></li>
-                        <li><a href="toplist">Toplist</a></li>
+                <div className="nav-items">
+                    <ul>
+                        <li>
+                            <NavLink to="/">
+                                Start
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/backlog">
+                                Backlog
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/toplist">
+                                Toplist
+                            </NavLink>
+                        </li>
                     </ul>
-                </nav>
-            </header>
-        </div>
+                </div>
+            </div>
+        </nav>
     )
 }
 
