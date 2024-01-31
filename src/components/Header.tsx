@@ -5,7 +5,7 @@ const Header: React.FC = () => {
     return (
         <div>
             <header className="Header">
-                GameTracker
+                <h1>Game Tracker</h1>
                 <nav>
                     <ul className="nav-items">
                         <li><a href="start">Start</a></li>

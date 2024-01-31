@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import StartPage from './pages/Startpage';
-import GameSearch from './components/GameSearch';
+import GameSearch from './pages/GameSearch';
 import './App.css';
 
 function App() {
