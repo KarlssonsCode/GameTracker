@@ -21,13 +21,14 @@ const GameList: React.FC<GameListProps> = ({ fetchMethod, renderInput }) => {
         }
     };
 
-    const addToBacklog = async (gameId: number) => {
+    const addToBacklog = async (gameId: number, userId: number, gameTitle: string) => {
         try {
-            const response = await axios.post(`${API_URL}/Backlog/AddBacklogGames`, { gameId }, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            }
+            const response = await axios.post(`${API_URL}/Backlog/AddBacklogGames`, { gameId, userId, gameTitle },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
             );
             console.log('Axios Request:', response);
 
@@ -51,7 +52,7 @@ const GameList: React.FC<GameListProps> = ({ fetchMethod, renderInput }) => {
             <ul className='gamepanel-container'>
                 {games.map((game) => (
                     <li key={game.id}>
-                        <div className='gamepanel' onClick={() => addToBacklog(game.id)}>
+                        <div className='gamepanel' onClick={() => addToBacklog(game.id, 1, game.name)}>
                             <img src={game.background_image} alt={game.name} />
                             <p>{game.name}</p>
 

@@ -6,20 +6,27 @@ import GameList from './GameList';
 
 
 const GameSearch: React.FC = () => {
+    const [searchQuery, setSearchQuery] = useState<string>('');
 
-    const handleSearchGames = async (searchQuery: string) => {
-        return getSearchedGames(searchQuery);
+    const handleSearchGames = async (query: string) => {
+        return getSearchedGames(query);
     };
 
-    const renderInput = (searchQuery: string, setSearchQuery: React.Dispatch<React.SetStateAction<string>>) => (
+    const renderInput = (query: string, setSearchQuery: React.Dispatch<React.SetStateAction<string>>) => (
         <div>
-            <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
-            <button onClick={() => handleSearchGames(searchQuery)}>Search</button>
+            <input type="text" placeholder='Search for games...' value={query} onChange={(e) => setSearchQuery(e.target.value)} />
         </div>
     );
 
     return (
-        <GameList fetchMethod={handleSearchGames} renderInput={renderInput} />
+        <>
+            <div>
+                {renderInput(searchQuery, setSearchQuery)}
+            </div>
+            {searchQuery !== '' && (
+                <GameList fetchMethod={handleSearchGames} renderInput={renderInput} />
+            )}
+        </>
     );
 };
 

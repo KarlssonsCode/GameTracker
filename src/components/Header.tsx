@@ -8,6 +8,7 @@ const Header: React.FC = () => {
             <div className="container">
                 <h1>Game Tracker</h1>
                 <div className="nav-items">
+                    
                     <ul>
                         <li>
                             <NavLink to="/">
