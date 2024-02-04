@@ -6,7 +6,7 @@ import Backlog from './pages/Backlog';
 import Toplist from './pages/Toplist';
 import GameSearch from './pages/GameSearch';
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
+
 
 const App: React.FC = () => {
   return (
