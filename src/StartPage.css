@@ -5,6 +5,24 @@
 
 }
 
+.page-text {
+    color: rgb(234, 234, 234);
+}
+
+.remove-button {
+    background-color: rgb(114, 114, 114);
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.remove-button:hover {
+    background-color: rgb(231, 68, 68);
+    cursor: pointer;
+}
+
+
+
 .gamepanel-container {
     display: flex;
     justify-content: center;
@@ -42,7 +60,7 @@
 }
 
 .gamepanel:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
     transform: scale(1.03);
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.474);

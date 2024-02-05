@@ -4,10 +4,13 @@ import GameList from "./GameList";
 import '../StartPage.css'
 
 const StartPage: React.FC = () => {
-const renderInput = () => null;
+    const renderInput = () => null;
 
     return (
-        <GameList fetchMethod={getStartPageGames} renderInput={renderInput}/>
+        <div>
+            <h1 className="page-text">Welcome to Game Tracker.</h1>
+            <GameList fetchMethod={getStartPageGames} renderInput={renderInput} />
+        </div>
 
     );
 

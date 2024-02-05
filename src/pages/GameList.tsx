@@ -55,7 +55,6 @@ const GameList: React.FC<GameListProps> = ({ fetchMethod, renderInput }) => {
                         <div className='gamepanel' onClick={() => addToBacklog(game.id, 1, game.name)}>
                             <img src={game.background_image} alt={game.name} />
                             <p>{game.name}</p>
-
                         </div>
                     </li>
                 ))}
