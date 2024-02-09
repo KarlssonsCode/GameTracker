@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const RAWG_API_KEY = '723fc8d27cc1419ca3b6a5d9b8c74796';
+const RAWG_API_KEY = '';
 const RAWG_API_URL = 'https://api.rawg.io/api/';
 
 export const getSearchedGames = async (query: string): Promise<any> => {
     try {
-        const response = await axios.get(`${RAWG_API_URL}games?key=${RAWG_API_KEY}&search=${query}`);
+        const response = await axios.get(`${RAWG_API_URL}games?key=${RAWG_API_KEY}&search=${query}&search_precise=true&ordering=-added`);
         console.log('GAMES FETCHED', response)
         return response.data;
     }
@@ -18,7 +18,7 @@ export const getSearchedGames = async (query: string): Promise<any> => {
 
 export const getStartPageGames = async (): Promise<any> => {
     try {
-        const response = await axios.get(`${RAWG_API_URL}games?key=${RAWG_API_KEY}&dates=2023-01-01,2023-12-31&ordering=-added`);
+        const response = await axios.get(`${RAWG_API_URL}games?key=${RAWG_API_KEY}&dates=2023-01-01,2024-12-31&ordering=-added`);
         console.log('START PAGE GAMES FETCHED', response)
         return response.data;
     }

@@ -3,6 +3,7 @@ import axios from "axios";
 
 const API_URL = "https://localhost:7279";
 
+
 interface GameListProps {
     fetchMethod: (searchQuery: string) => Promise<any>;
     renderInput: (searchQuery: string, setSearchQuery: React.Dispatch<React.SetStateAction<string>>) => React.ReactNode;
@@ -49,16 +50,26 @@ const GameList: React.FC<GameListProps> = ({ fetchMethod, renderInput }) => {
     return (
         <div>
             {renderInput(searchQuery, setSearchQuery)}
-            <ul className='gamepanel-container'>
+            <ul className='gamecard-container'>
                 {games.map((game) => (
                     <li key={game.id}>
-                        <div className='gamepanel' onClick={() => addToBacklog(game.id, 1, game.name)}>
+                        <div className='gamecard' onClick={() => addToBacklog(game.id, 1, game.name)}>
                             <img src={game.background_image} alt={game.name} />
                             <p>{game.name}</p>
                         </div>
                     </li>
                 ))}
             </ul>
+            {/* {selectedGame && (
+                <div className="popup">
+                    <div className="popup-inner">
+                        <button onClick={handleClose}>Close</button>
+                        <h2>{selectedGame.name}</h2>
+                        <img src={selectedGame.background_image} alt={selectedGame.name} />
+                        <button onClick={() => addToBacklog(selectedGame.id, 1, selectedGame.name)}>Add to Backlog</button>
+                    </div>
+                </div>
+            )} */}
         </div>
     )
 }

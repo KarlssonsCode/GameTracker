@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { getBacklogGames } from "../GameTrackerService";
 import { getGameDetails } from "../rawgService";
 import axios from "axios";
-import GameList from "./GameList";
 import '../StartPage.css'
+
 
 const API_URL = "https://localhost:7279";
 
@@ -19,11 +19,11 @@ const Backlog: React.FC = () => {
         },
       });
       console.log('Axios Request:', response);
-      
+
       if (response.status === 205) {
         console.log('Game removed from backlog successfully');
 
-        
+
       } else {
         console.error('Error removing game from backlog');
       }
@@ -51,30 +51,32 @@ const Backlog: React.FC = () => {
     }
   };
 
-useEffect(() => {
-  fetchBacklogGames();
-}, []);
+  useEffect(() => {
+    fetchBacklogGames();
+  }, []);
 
 
-return (
+  return (
 
-  // <GameList fetchMethod={setBacklogGames} renderInput={renderInput} />
+    // <GameList fetchMethod={setBacklogGames} renderInput={renderInput} />
 
-  <div>
-    <h1>Backlog Page</h1>
-    <ul className='gamepanel-container'>
-      {backlogGames.map((game) => (
-        <li key={game.id}>
-          <div className='gamepanel'>
-            <img src={game.rawgData.background_image} alt={game.name} />
-            <p>{game.gameTitle}</p>
-            <button className="remove-button" onClick={() => removeFromBacklog(game.rawgData.id)}>REMOVE FROM BACKLOG</button>
-          </div>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+    <div>
+      <h1>Backlog Page</h1>
+      <ul className='gamecard-container'>
+        {backlogGames.map((game) => (
+          <li key={game.id}>
+            <div className='gamecard'>
+              <img src={game.rawgData.background_image} alt={game.name} />
+              <p>{game.gameTitle}</p>
+              <button className="remove-button" onClick={() => removeFromBacklog(game.rawgData.id)}>REMOVE FROM BACKLOG</button>
+
+            </div>
+
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 
