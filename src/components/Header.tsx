@@ -22,7 +22,7 @@ const Header: React.FC = () => {
                         </li>
                         <li>
                             <NavLink to="/toplist">
-                                Toplist
+                                Completed Games
                             </NavLink>
                         </li>
                     </ul>

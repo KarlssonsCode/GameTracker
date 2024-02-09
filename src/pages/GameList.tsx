@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = "https://localhost:7279";
-
 
 interface GameListProps {
     fetchMethod: (searchQuery: string) => Promise<any>;
@@ -12,6 +12,7 @@ interface GameListProps {
 const GameList: React.FC<GameListProps> = ({ fetchMethod, renderInput }) => {
     const [games, setGames] = useState<any[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const [selectedGame, setSelectedGame] = useState<any | null>(null);
 
     const handleGames = async () => {
         try {
@@ -21,6 +22,11 @@ const GameList: React.FC<GameListProps> = ({ fetchMethod, renderInput }) => {
             console.error('ERROR FETCHING GAMES', error)
         }
     };
+
+    const handleGameClick = (game: any) => {
+        setSelectedGame(game);
+    };
+
 
     const addToBacklog = async (gameId: number, userId: number, gameTitle: string) => {
         try {
@@ -53,25 +59,19 @@ const GameList: React.FC<GameListProps> = ({ fetchMethod, renderInput }) => {
             <ul className='gamecard-container'>
                 {games.map((game) => (
                     <li key={game.id}>
-                        <div className='gamecard' onClick={() => addToBacklog(game.id, 1, game.name)}>
-                            <img src={game.background_image} alt={game.name} />
-                            <p>{game.name}</p>
-                        </div>
+                        <Link to={`/game/${game.id}`}>
+                            <div className='gamecard'>
+                                <img src={game.background_image} alt={game.name} />
+                                <p>{game.name}</p>
+                            </div>
+                        </Link>
                     </li>
                 ))}
             </ul>
-            {/* {selectedGame && (
-                <div className="popup">
-                    <div className="popup-inner">
-                        <button onClick={handleClose}>Close</button>
-                        <h2>{selectedGame.name}</h2>
-                        <img src={selectedGame.background_image} alt={selectedGame.name} />
-                        <button onClick={() => addToBacklog(selectedGame.id, 1, selectedGame.name)}>Add to Backlog</button>
-                    </div>
-                </div>
-            )} */}
         </div>
     )
 }
 
 export default GameList;
+
+// onClick={() => handleGameClick(game)}

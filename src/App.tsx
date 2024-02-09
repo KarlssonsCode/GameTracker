@@ -5,6 +5,7 @@ import StartPage from './pages/Startpage';
 import Backlog from './pages/Backlog';
 import Toplist from './pages/Toplist';
 import GameSearch from './pages/GameSearch';
+import GamePage from './pages/GamePage';
 import './App.css';
 
 
@@ -15,6 +16,7 @@ const App: React.FC = () => {
       <GameSearch />
       <Routes>
         <Route path="/" element={<StartPage />} />
+        <Route path="/game/:id" Component={GamePage} />
         <Route path="/backlog" element={<Backlog />} />
         <Route path="/toplist" element={<Toplist />} />
       </Routes>
